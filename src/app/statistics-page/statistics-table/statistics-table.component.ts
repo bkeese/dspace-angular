@@ -50,6 +50,20 @@ export class StatisticsTableComponent implements OnInit {
   }
 
   /**
+   * Get labels for report headers
+   * @param header the header to translate
+   */
+  getHeaderLabel(header: string): string {
+    if (header == 'views') {
+      if (this.report.reportType == 'TotalDownloads') {
+        return 'Downloads';
+      }
+      return 'Visits';
+    }
+    return header.charAt(0).toUpperCase() + header.slice(1);;
+  } 
+
+  /**
    * Get the row label to display for a statistics point.
    * @param point the statistics point to get the label for
    */
